@@ -1,6 +1,8 @@
 #include "../include/Game.hpp"
 #include "../include/EntityManager.hpp"
 
+#include "../include/Player.hpp"
+
 Game::Game(glm::vec2 windowSize, std::string title)
 	: window(sf::RenderWindow{ sf::VideoMode(windowSize.x, windowSize.y), title, sf::Style::Default })
 {

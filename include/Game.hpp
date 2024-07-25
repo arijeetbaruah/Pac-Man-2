@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <glm/glm.hpp>
+#include <memory>
 
 class EntityManager;
 
