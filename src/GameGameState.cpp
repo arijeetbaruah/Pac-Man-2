@@ -2,11 +2,15 @@
 #include "../include/EntityManager.hpp"
 #include "../include/Player.hpp"
 #include "../include/Game.hpp"
+#include "../include/loadFromResource.hpp"
+#include "../assets/resource.h"
 
 GameGameState::GameGameState(Game* game): BaseState(game)
 {
 	player = std::make_shared<Player>(game);
 	game->getEntityManager()->AddEntity(player);
+
+	std::string map = LoadFromResource::loadTxtFromResource(std::to_string(IDR_TXT1));
 }
 
 void GameGameState::onEntry()
