@@ -11,6 +11,13 @@ void EntityManager::AddEntity(std::shared_ptr<BaseEntity> entity)
 	registry.push_back(entity);
 }
 
+void EntityManager::handleInput(sf::Event event)
+{
+	for (size_t index = 0; index < registry.size(); index++) {
+		registry[index]->handleInput(event);
+	}
+}
+
 void EntityManager::update(sf::Time deltaTime)
 {
 	for (size_t x = 0; x < registry.size(); x++) {

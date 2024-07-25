@@ -6,6 +6,10 @@ Player::Player(Game* game): BaseEntity(game)
 	circle.setRadius(10);
 }
 
+void Player::handleInput(sf::Event event)
+{
+}
+
 void Player::update(sf::Time deltaTime)
 {
 }
@@ -24,6 +28,11 @@ glm::vec2 Player::getPosition() const
 {
 	sf::Vector2f position = circle.getPosition();
 	return glm::vec2(position.x, position.y);
+}
+
+void Player::move(const glm::vec2 position)
+{
+	circle.move(sf::Vector2f(position.x, position.y));
 }
 
 void Player::onCollision(std::shared_ptr<BaseCollision> other)

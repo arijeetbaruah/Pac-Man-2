@@ -1,7 +1,6 @@
 #include "../include/Game.hpp"
 #include "../include/EntityManager.hpp"
-
-#include "../include/Player.hpp"
+#include "../include/GameStateMachine.hpp"
 
 Game::Game(glm::vec2 windowSize, std::string title)
 	: window(sf::RenderWindow{ sf::VideoMode(windowSize.x, windowSize.y), title, sf::Style::Default })
@@ -9,6 +8,7 @@ Game::Game(glm::vec2 windowSize, std::string title)
 	window.setFramerateLimit(144);
 
     entityManager = std::make_shared<EntityManager>();
+    gameStateMachine = std::make_shared<GameStateMachine>(this);
 }
 
 void Game::run()
@@ -23,12 +23,17 @@ void Game::run()
             {
                 window.close();
             }
+
+            entityManager->handleInput(event);
+            gameStateMachine->handleInput(event);
         }
 
         entityManager->update(elapsed);
+        gameStateMachine->update(elapsed);
 
         window.clear();
         entityManager->render();
+        gameStateMachine->render();
         window.display();
     }
 }
@@ -36,4 +41,9 @@ void Game::run()
 std::shared_ptr<EntityManager> Game::getEntityManager() const
 {
     return entityManager;
+}
+
+std::shared_ptr<GameStateMachine> Game::getGameStateMachine() const
+{
+    return gameStateMachine;
 }

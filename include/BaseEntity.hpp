@@ -13,11 +13,13 @@ protected:
 public:
 	BaseEntity(Game* game);
 
+	virtual void handleInput(sf::Event event) = 0;
 	virtual void update(sf::Time deltaTime) = 0;
 	virtual void render() = 0;
 
 	virtual void setPosition(const glm::vec2 position);
 	virtual void setPosition(const float x, const float y) = 0;
 	virtual glm::vec2 getPosition() const = 0;
+	virtual void move(const glm::vec2 position) = 0;
 };
 

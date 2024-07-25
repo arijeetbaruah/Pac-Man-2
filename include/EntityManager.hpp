@@ -17,6 +17,7 @@ public:
 
 	void AddEntity(std::shared_ptr<BaseEntity> entity);
 
+	void handleInput(sf::Event event);
 	void update(sf::Time deltaTime);
 	void render();
 };
