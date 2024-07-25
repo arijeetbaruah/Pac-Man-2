@@ -31,6 +31,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Update Submodule
+      uses: git submodule update
+
     - name: Configure
       run: cmake -B build ${{matrix.platform.flags}} ${{matrix.config.flags}}
 
