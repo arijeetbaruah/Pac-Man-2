@@ -2,11 +2,20 @@
 
 #include "./BaseEntity.hpp"
 #include "./BaseCollision.hpp"
+#include "./EDirection.hpp"
 
 class Player : public BaseEntity, public BaseCollision
 {
 private:
-	sf::CircleShape circle;
+	sf::Sprite sprite;
+	sf::Texture texture;
+
+	std::map<EDirection, std::vector<sf::IntRect>> animations;
+	EDirection direction;
+	size_t animationIndex;
+	float animationTimer;
+
+	void InitializeAnimation();
 
 public:
 	Player(Game* game);

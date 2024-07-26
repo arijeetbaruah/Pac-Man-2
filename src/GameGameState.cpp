@@ -23,7 +23,7 @@ void GameGameState::handleInput(sf::Event event)
 
 void GameGameState::onUpdate(sf::Time deltaTime)
 {
-	player->move(glm::vec2(0, 5) * deltaTime.asSeconds());
+	//player->move(glm::vec2(0, 5) * deltaTime.asSeconds());
 }
 
 void GameGameState::render()
