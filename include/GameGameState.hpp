@@ -4,11 +4,13 @@
 #include <memory>
 
 class Player;
+class Map;
 
 class GameGameState : public BaseState
 {
 private:
 	std::shared_ptr<Player> player;
+	std::shared_ptr<Map> map;
 
 public:
 	GameGameState(Game* game);

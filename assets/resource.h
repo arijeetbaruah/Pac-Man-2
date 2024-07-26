@@ -3,7 +3,6 @@
 // Used by PacMan.rc
 //
 #define IDI_ICON1                       102
-#define IDR_TXT1                        103
 
 // Next default values for new objects
 // 
