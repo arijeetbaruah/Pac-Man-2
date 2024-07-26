@@ -22,5 +22,7 @@ public:
 	void handleInput(sf::Event event);
 	void update(sf::Time deltaTime);
 	void render();
+
+	std::shared_ptr<BaseState> getCurrentState() const;
 };
 

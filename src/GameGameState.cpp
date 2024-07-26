@@ -11,6 +11,14 @@ GameGameState::GameGameState(Game* game): BaseState(game)
 	
 	map = std::make_shared<Map>(game);
 	map->load("../map/map.txt");
+
+	glm::vec2 pos = map->getPlayerPosition();
+	player->setPosition(pos);
+}
+
+std::shared_ptr<Map> GameGameState::getMap() const
+{
+	return map;
 }
 
 void GameGameState::onEntry()
@@ -23,11 +31,11 @@ void GameGameState::handleInput(sf::Event event)
 
 void GameGameState::onUpdate(sf::Time deltaTime)
 {
-	//player->move(glm::vec2(0, 5) * deltaTime.asSeconds());
 }
 
 void GameGameState::render()
 {
+	map->render();
 }
 
 void GameGameState::onExit()

@@ -15,6 +15,8 @@ private:
 public:
 	GameGameState(Game* game);
 
+	std::shared_ptr<Map> getMap() const;
+
 	// Inherited via BaseState
 	void onEntry() override;
 	void handleInput(sf::Event event) override;

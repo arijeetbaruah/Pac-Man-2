@@ -43,3 +43,8 @@ void GameStateMachine::render()
 		currentState->render();
 	}
 }
+
+std::shared_ptr<BaseState> GameStateMachine::getCurrentState() const
+{
+	return currentState;
+}
